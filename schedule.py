@@ -4,7 +4,15 @@ def display_planning(schedule):
         print(day + ":")
         for task in tasks:
             print("- " + task)
-            
+    print("\n")
+
+def get_valid_day(jours):
+    while True:
+        day = input(f"quel jour voulez-vous planifier ? ({', '.join(jours)}) : ").strip().lower()
+        if day in jours:
+            return day
+        print("jour invalide. Veuillez entrer un jour correct\n")
+    
 def main():
     jours = ['lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi', 'dimanche']
     schedule = {jour: [] for jour in jours}
@@ -20,16 +28,14 @@ def main():
         if choix == '1':
             display_planning(schedule)
         elif choix == '2':
-            #demander le jour
-            day = input(f"quel jour voulez-vous planifier ? ({', '.join(jours)}) : ")
-            if day not in jours:
-                print("jours invalide. Essayez encore !")
-                continue
+            day = get_valid_day(jours)
             #demander la tache
-            task = input(f"entrer la tache pour {day} : ")
-            #ajouter la tache au jour choisi
-            schedule[day].append(task)
-            print(f"tache ajoutée pour {day}")
+            task = input(f"entrer la tache pour {day.capitalize()} : ").strip()
+            if task:
+                schedule[day].append(task)
+                print(f"tache ajoutée pour {day}")
+            else:
+                print("tache vide, rien n'a été ajouté")
         elif choix == '3':
             print("merci d'avoir utilisé ce programme !")
             break
