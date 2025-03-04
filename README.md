@@ -4,7 +4,8 @@ Un programme simple en `Python` qui permet aux étudiants, développeurs d'organ
 ## Fonctionnalité
 1. **affichage du planning**: voir les taches programmées pour chaque jour de la semaine
 2. **ajout de taches**: ajouter une tache pour un jour spécifique
-3. **quitter proprement**: option pour quitter le programme
+3. **gestion des erreurs**: ajout d'une fonction `get_valid_day()` pour valider les jours
+4. **quitter proprement**: option pour quitter le programme
 
 ## Installation & utilisation
 * `Python 3` installé sur votre machine
